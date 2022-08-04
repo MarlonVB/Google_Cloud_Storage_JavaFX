@@ -36,8 +36,16 @@ requires google.cloud.firestore;
 requires com.google.auth;
 requires com.google.auth.oauth2;
 ```
+
 ## Observaciones
 En este caso se usó Intellij como IDE de desarrollo, en caso de use algún otro como NetBeans o Eclipse, debe asegurarse de tener agregado en el module-info.java lo siguiente a parte de lo anterior:
 ```sh
 requires google.cloud.storage;
 ```
+
+## Un error probable 
+En este caso puede darte varios errores pero la mayoria yo lo solucione realizando la todo lo anterior. Pero un error que puede saltarte es el de com.google.cloud.storage.StorageException: 401 Unauthorized  en este caso yo lo solucione ejecutando en el Google Cloud SDK Shell lo siguiente: 
+```sh
+gcloud auth application-default login
+```
+Puede ver este post de StackoverFlow para conseguir mas info: https://stackoverflow.com/questions/49000925/com-google-cloud-storage-storageexception-401-unauthorized-from-local-machine
