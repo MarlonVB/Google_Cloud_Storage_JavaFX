@@ -43,9 +43,11 @@ En este caso se usó Intellij como IDE de desarrollo, en caso de use algún otro
 requires google.cloud.storage;
 ```
 
-## Un error probable 
+#### Un error probable 
 En este caso puede darte varios errores pero la mayoria yo lo solucione realizando la todo lo anterior. Pero un error que puede saltarte es el de com.google.cloud.storage.StorageException: 401 Unauthorized  en este caso yo lo solucione ejecutando en el Google Cloud SDK Shell lo siguiente: 
 ```sh
 gcloud auth application-default login
 ```
 Puede ver este post de StackoverFlow para conseguir mas info: https://stackoverflow.com/questions/49000925/com-google-cloud-storage-storageexception-401-unauthorized-from-local-machine
+
+> Se recomienda para que el sistema funcione de mejor manera, correclo en IntelliJ IDEA.
