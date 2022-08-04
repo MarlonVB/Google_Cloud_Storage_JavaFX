@@ -50,4 +50,4 @@ gcloud auth application-default login
 ```
 Puede ver este post de StackoverFlow para conseguir mas info: https://stackoverflow.com/questions/49000925/com-google-cloud-storage-storageexception-401-unauthorized-from-local-machine
 
-> Se recomienda para que el sistema funcione de mejor manera, correclo en IntelliJ IDEA.
+> Se recomienda para que el sistema funcione de mejor manera, correrlo en IntelliJ IDEA.
