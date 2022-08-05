@@ -9,32 +9,28 @@ import java.nio.file.Paths;
 
 public class Conexion {
 
-    public void subirArchivo(/*String projectId, String bucketName, String objectName, String filePath*/) throws IOException {
-        // The ID of your GCP project
-         String projectId_p = "durable-sound-356201";
+    public void subirArchivo(String projectId, String bucketName, String objectName, String filePath) throws IOException {
 
-        // The ID of your GCS bucket
-         String bucketName_p = "guia_bucket_tendencias";
+         String proyecto_id = "durable-sound-356201";
 
-        // The ID of your GCS object
-         String objectName_p = "moodboard_prueba";
+         String nombreBucket = "guia_bucket_tendencias";
 
-        // The path to your file to upload
-         //String filePath_p = String.valueOf(Conexion.class.getResource("analisis.gif"));
-         String filePath_p ="C:\\Users\\velez\\Documents\\IntelliJ Projects\\Guia_Practica_Unidad_2\\src\\main\\resources\\ec\\edu\\ista\\marlon\\moodboard.pdf";
+         String nombreDeArchivo = "moodboard_prueba";
 
-        Storage storage = StorageOptions.newBuilder().setProjectId(projectId_p).build().getService();
-        BlobId blobId = BlobId.of(bucketName_p, objectName_p);
+         String pathArchivo ="C:\\Users\\velez\\Documents\\IntelliJ Projects\\Guia_Practica_Unidad_2\\src\\main\\resources\\ec\\edu\\ista\\marlon\\moodboard.pdf";
+
+        Storage storage = StorageOptions.newBuilder().setProjectId(proyecto_id).build().getService();
+        BlobId blobId = BlobId.of(nombreBucket, nombreDeArchivo);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
-        if (filePath_p!=null){
-            System.out.println("ARCHIVO: "+filePath_p);
-            storage.create(blobInfo, Files.readAllBytes(Paths.get(filePath_p)));
+        if (pathArchivo!=null){
+            System.out.println("ARCHIVO: "+pathArchivo);
+            storage.create(blobInfo, Files.readAllBytes(Paths.get(pathArchivo)));
         }else{
             System.out.println("NO SE ENCUENTRA EL ARCHIVO");
         }
 
         System.out.println(
-                "File " + filePath_p + " uploaded to bucket " + bucketName_p + " as " + objectName_p);
+                "File " + pathArchivo + " uploaded to bucket " + nombreBucket + " as " + nombreDeArchivo);
     }
 
 }

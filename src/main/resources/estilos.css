@@ -1,0 +1,20 @@
+.boton-estilo {
+    -fx-background-color:transparent;
+}
+
+.boton-estilo:focused{
+    -fx-background-color:#6200EE1F;
+}
+
+.boton-estilo:hover{
+    -fx-background-color:#6200EE2F;
+}
+
+.boton-estilo:pressed{
+    -fx-background-color:#6200EE3F;
+}
+
+
+.boton-estilo:disabled{
+    -fx-text-fill:gray;
+}

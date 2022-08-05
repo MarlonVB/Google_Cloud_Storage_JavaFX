@@ -19,12 +19,6 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
-
-        //HelloController controller= new HelloController(stage);
-
-        /*Conexion subir= new Conexion();
-        subir.subirArchivo();*/
-
     }
 
     public static void main(String[] args) {
