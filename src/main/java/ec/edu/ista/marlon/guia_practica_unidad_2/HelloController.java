@@ -3,9 +3,7 @@ package ec.edu.ista.marlon.guia_practica_unidad_2;
 import ec.edu.ista.marlon.guia_practica_unidad_2.google.Conexion;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -13,36 +11,52 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
     private String path;
     private String idProyecto;
+
+    private File archivo;
     @FXML
     private Button abrirArchivo;
 
+    @FXML
+    private Button enviarArchivo;
+    @FXML
+    private Button quitarArchivo;
     @FXML
     private TextField txtNombreObj;
     @FXML
     private TextField txtNombreBucket;
     @FXML
     private TextField txtNombreProyecto;
+    @FXML
+    private Label labelArchivo;
 
 
     @FXML
-    protected void abrirSelector() {
+    protected void recogerDatos() {
 
-        HelloApplication helloApplication= new HelloApplication();
+        do{
+            archivo = openChooser();
 
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Buscar Archivo");
-
-        // Obtener archivos
-        File imgFile = fileChooser.showOpenDialog(helloApplication.getStage());
-        path=imgFile.getAbsolutePath();
-
-        System.out.println("PATH: "+imgFile.getAbsolutePath());
-
+            if (archivo!=null){
+                quitarArchivo.setDisable(false);
+                path=archivo.getAbsolutePath();
+                enviarArchivo.setDisable(false);
+                labelArchivo.setText(archivo.getName());
+                System.out.println("NOMBRE: "+archivo.getName());
+            }else {
+                System.out.println("ERROR");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText("¡ERROR!");
+                alert.setTitle("No se ha elegido un archivo");
+                alert.setContentText("Debes elegir un archivo");
+                Optional<ButtonType> action = alert.showAndWait();
+            }
+        }while (archivo==null);
     }
 
     @FXML
@@ -63,5 +77,39 @@ public class HelloController implements Initializable {
         this.idProyecto="durable-sound-356201";
         txtNombreProyecto.setText(idProyecto);
         txtNombreProyecto.setEditable(false);
+        enviarArchivo.setDisable(true);
+        quitarArchivo.setDisable(true);
+    }
+
+    private File openChooser(){
+        HelloApplication helloApplication= new HelloApplication();
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Buscar Archivo");
+
+        // Obtener archivos
+        File archivo = fileChooser.showOpenDialog(helloApplication.getStage());
+
+        return archivo;
+    }
+
+    @FXML
+    private void quitarArchivo(){
+
+        System.out.println("ARCHIVO ENTRA: "+archivo.getName());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Confirmación");
+        alert.setContentText("¿Estas seguro de quitar el archivo?");
+        Optional<ButtonType> action = alert.showAndWait();
+
+        // Si hemos pulsado en aceptar
+        if (action.get() == ButtonType.OK) {
+            archivo=null;
+            labelArchivo.setText("");
+            enviarArchivo.setDisable(true);
+            quitarArchivo.setDisable(true);
+        }
+
     }
 }

@@ -1,20 +1,55 @@
+.pane-estilo{
+    -fx-background-color:#E5E8EF;
+}
+.boton-estilo{
+    -fx-border-color: #C501E2;
+}
 .boton-estilo {
     -fx-background-color:transparent;
 }
 
-.boton-estilo:focused{
-    -fx-background-color:#6200EE1F;
-}
-
 .boton-estilo:hover{
-    -fx-background-color:#6200EE2F;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
 }
 
 .boton-estilo:pressed{
-    -fx-background-color:#6200EE3F;
+    -fx-effect: dropshadow(gaussian, black, 5, 0, 0, 0);
 }
-
 
 .boton-estilo:disabled{
     -fx-text-fill:gray;
+}
+
+.text-field {
+    -fx-background-color: white ;
+    -fx-background-radius: 5 ;
+    -fx-background-color: #a3a7a8, white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-font-size: 18;
+}
+.text-field:focused {
+    -fx-background-color: #C501E2, white ;
+}
+
+.label-titulo{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+.label-archivo{
+
+    -fx-padding: 10 ;
+    -fx-font-size: 15px;
+}
+
+.panel-estilo{
+    -fx-border-color: #C501E2;
+}
+
+.btnQuitar{
+    -fx-background-color: #C42B1C;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
 }

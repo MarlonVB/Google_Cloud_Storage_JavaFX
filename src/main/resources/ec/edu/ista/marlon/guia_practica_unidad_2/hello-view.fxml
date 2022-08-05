@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="364.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.ista.marlon.guia_practica_unidad_2.HelloController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="364.0" styleClass="pane-estilo" stylesheets="@../../../../../estilos.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.ista.marlon.guia_practica_unidad_2.HelloController">
    <children>
-      <TextField fx:id="txtNombreObj" layoutX="90.0" layoutY="81.0" prefHeight="49.0" prefWidth="184.0" promptText="Nombre del Archivo" />
-      <TextField fx:id="txtNombreProyecto" layoutX="90.0" layoutY="149.0" prefHeight="49.0" prefWidth="184.0" />
-      <TextField fx:id="txtNombreBucket" layoutX="90.0" layoutY="223.0" prefHeight="49.0" prefWidth="184.0" promptText="Nombre del Bucket" />
-      <Button fx:id="abrirArchivo" layoutX="103.0" layoutY="295.0" mnemonicParsing="false" onAction="#abrirSelector" prefHeight="39.0" prefWidth="158.0" styleClass="boton-estilo" stylesheets="@../../../../../estilos.css" text="Elegir Archivo" />
-      <Button layoutX="139.0" layoutY="369.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="87.0" styleClass="boton-estilo" stylesheets="@../../../../../estilos.css" text="Subir Archivo" />
+      <TextField fx:id="txtNombreObj" layoutX="48.0" layoutY="212.0" prefHeight="49.0" prefWidth="264.0" promptText="Nombre del Archivo" />
+      <TextField fx:id="txtNombreProyecto" layoutX="48.0" layoutY="280.0" prefHeight="49.0" prefWidth="264.0" />
+      <TextField fx:id="txtNombreBucket" layoutX="48.0" layoutY="348.0" prefHeight="49.0" prefWidth="264.0" promptText="Nombre del Bucket" />
+      <Button fx:id="abrirArchivo" layoutX="103.0" layoutY="520.0" mnemonicParsing="false" onAction="#recogerDatos" prefHeight="39.0" prefWidth="158.0" styleClass="boton-estilo" stylesheets="@../../../../../estilos.css" text="Elegir Archivo" />
+      <Button fx:id="enviarArchivo" layoutX="134.0" layoutY="595.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="97.0" styleClass="boton-estilo" stylesheets="@../../../../../estilos.css" text="Subir Archivo" onAction="#enviarArchivo"/>
+      <ImageView fitHeight="114.0" fitWidth="280.0" layoutX="41.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../java.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="34.0" layoutY="135.0" prefHeight="45.0" prefWidth="296.0" styleClass="label-titulo" stylesheets="@../../../../../estilos.css" text="Google Could y Java" />
+      <Pane layoutX="14.0" layoutY="423.0" prefHeight="65.0" prefWidth="337.0" styleClass="panel-estilo" stylesheets="@../../../../../estilos.css">
+         <children>
+            <Label fx:id="labelArchivo" layoutX="14.0" layoutY="12.0" prefHeight="41.0" prefWidth="219.0" styleClass="label-archivo" stylesheets="@../../../../../estilos.css" text="Label" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Narrow" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="quitarArchivo" layoutX="246.0" layoutY="13.0" mnemonicParsing="false" onAction="#quitarArchivo" prefHeight="39.0" prefWidth="77.0" styleClass="btnQuitar" stylesheets="@../../../../../estilos.css" text="Quitar" />
+         </children>
+      </Pane>
    </children>
 </Pane>

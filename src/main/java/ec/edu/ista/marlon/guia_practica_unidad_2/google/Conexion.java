@@ -9,15 +9,15 @@ import java.nio.file.Paths;
 //
 public class Conexion {
 
-    public void subirArchivo(String projectId, String bucketName, String objectName, String filePath) throws IOException {
+    public void subirArchivo(String proyecto_id, String nombreBucket, String nombreDeArchivo, String pathArchivo) throws IOException {
 
-         String proyecto_id = "durable-sound-356201";
+         /*String proyecto_id = "durable-sound-356201";
 
          String nombreBucket = "guia_bucket_tendencias";
 
          String nombreDeArchivo = "moodboard_prueba";
 
-         String pathArchivo ="C:\\Users\\velez\\Documents\\IntelliJ Projects\\Guia_Practica_Unidad_2\\src\\main\\resources\\ec\\edu\\ista\\marlon\\moodboard.pdf";
+         String pathArchivo ="C:\\Users\\velez\\Documents\\IntelliJ Projects\\Guia_Practica_Unidad_2\\src\\main\\resources\\ec\\edu\\ista\\marlon\\moodboard.pdf";*/
 
         Storage storage = StorageOptions.newBuilder().setProjectId(proyecto_id).build().getService();
         BlobId blobId = BlobId.of(nombreBucket, nombreDeArchivo);
