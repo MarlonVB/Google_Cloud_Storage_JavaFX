@@ -10,15 +10,7 @@ import java.nio.file.Paths;
 public class Conexion {
 
     public void subirArchivo(String proyecto_id, String nombreBucket, String nombreDeArchivo, String pathArchivo) throws IOException {
-
-         /*String proyecto_id = "durable-sound-356201";
-
-         String nombreBucket = "guia_bucket_tendencias";
-
-         String nombreDeArchivo = "moodboard_prueba";
-
-         String pathArchivo ="C:\\Users\\velez\\Documents\\IntelliJ Projects\\Guia_Practica_Unidad_2\\src\\main\\resources\\ec\\edu\\ista\\marlon\\moodboard.pdf";*/
-
+        long inicio = System.currentTimeMillis();
         Storage storage = StorageOptions.newBuilder().setProjectId(proyecto_id).build().getService();
         BlobId blobId = BlobId.of(nombreBucket, nombreDeArchivo);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
@@ -28,9 +20,11 @@ public class Conexion {
         }else{
             System.out.println("NO SE ENCUENTRA EL ARCHIVO");
         }
+        long fin = System.currentTimeMillis();
 
         System.out.println(
-                "File " + pathArchivo + " uploaded to bucket " + nombreBucket + " as " + nombreDeArchivo);
+                "File " + pathArchivo + " uploaded to bucket " + nombreBucket + " as " + nombreDeArchivo+" \n Tiempo de Espera: "+(fin - inicio)/1000);
+
     }
 
 }

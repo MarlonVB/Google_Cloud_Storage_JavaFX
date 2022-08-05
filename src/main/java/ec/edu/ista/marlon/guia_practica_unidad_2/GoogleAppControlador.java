@@ -4,9 +4,7 @@ import ec.edu.ista.marlon.guia_practica_unidad_2.google.Conexion;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +12,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class GoogleAppControlador implements Initializable {
     private String path;
     private String idProyecto;
 
@@ -82,13 +80,13 @@ public class HelloController implements Initializable {
     }
 
     private File openChooser(){
-        HelloApplication helloApplication= new HelloApplication();
+        GoogleApp googleApp = new GoogleApp();
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Buscar Archivo");
 
         // Obtener archivos
-        File archivo = fileChooser.showOpenDialog(helloApplication.getStage());
+        File archivo = fileChooser.showOpenDialog(googleApp.getStage());
 
         return archivo;
     }

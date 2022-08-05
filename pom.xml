@@ -159,7 +159,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                ec.edu.ista.marlon.guia_practica_unidad_2/ec.edu.ista.marlon.guia_practica_unidad_2.HelloApplication
+                                ec.edu.ista.marlon.guia_practica_unidad_2/ec.edu.ista.marlon.guia_practica_unidad_2.GoogleApp
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

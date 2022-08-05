@@ -45,7 +45,8 @@
 }
 
 .panel-estilo{
-    -fx-border-color: #C501E2;
+    -fx-border-color: #4D4D4D;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
 
 .btnQuitar{
