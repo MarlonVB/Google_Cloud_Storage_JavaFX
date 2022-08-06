@@ -18,7 +18,7 @@ public class GoogleApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(GoogleApp.class.getResource("google-app-vista.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Cargar Archivo al Google Cloud");
-        Image iconApp= new Image("C:\\Users\\pato0\\Documents\\GitHub\\Google_Cloud_Storage_JavaFX\\src\\main\\resources\\carga-en-la-nube.png");
+        Image iconApp= new Image("C:\\Users\\velez\\Documents\\IntelliJ Projects\\Guia_Practica_Unidad_2\\src\\main\\resources\\carga-en-la-nube.png");
         stage.getIcons().add(iconApp);
         stage.setScene(scene);
         stage.show();
