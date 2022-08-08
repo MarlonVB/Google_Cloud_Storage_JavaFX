@@ -4,6 +4,8 @@ import ec.edu.ista.marlon.guia_practica_unidad_2.google.Conexion;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -33,6 +35,13 @@ public class GoogleAppControlador implements Initializable {
     @FXML
     private Label labelArchivo;
 
+    @FXML
+    private ImageView img_errorObj;
+
+    @FXML
+    private ImageView img_errorBucket;
+
+
 
     @FXML
     protected void recogerDatos() {
@@ -45,9 +54,7 @@ public class GoogleAppControlador implements Initializable {
                 path=archivo.getAbsolutePath();
                 enviarArchivo.setDisable(false);
                 labelArchivo.setText(archivo.getName());
-                System.out.println("NOMBRE: "+archivo.getName());
             }else {
-                System.out.println("ERROR");
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText("¡ERROR!");
                 alert.setTitle("No se ha elegido un archivo");
@@ -60,13 +67,25 @@ public class GoogleAppControlador implements Initializable {
     @FXML
     protected void enviarArchivo() {
         Conexion conexion= new Conexion();
-        String nombreArchico= txtNombreObj.getText();
-        String nombreBucket= txtNombreBucket.getText();
+        String nombreArchico=null;
+        String nombreBucket=null;
 
-        try {
-            conexion.subirArchivo(idProyecto, nombreBucket, nombreArchico, path);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (!(txtNombreBucket.getText().isEmpty() && txtNombreObj.getText().isEmpty())){
+            nombreArchico= txtNombreObj.getText();
+            nombreBucket= txtNombreBucket.getText();
+
+            try {
+                conexion.subirArchivo(idProyecto, nombreBucket, nombreArchico, path);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            mostrarError();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("¡ERROR!");
+            alert.setTitle("Debes rellenar todos los campos");
+            alert.setContentText("Debes llenar los campos necesarios antes de continuar");
+            Optional<ButtonType> action = alert.showAndWait();
         }
     }
 
@@ -77,6 +96,8 @@ public class GoogleAppControlador implements Initializable {
         txtNombreProyecto.setEditable(false);
         enviarArchivo.setDisable(true);
         quitarArchivo.setDisable(true);
+        img_errorObj.setVisible(false);
+        img_errorBucket.setVisible(false);
     }
 
     private File openChooser(){
@@ -108,6 +129,17 @@ public class GoogleAppControlador implements Initializable {
             enviarArchivo.setDisable(true);
             quitarArchivo.setDisable(true);
         }
+    }
 
+    private void mostrarError(){
+        if (txtNombreObj.getText().isEmpty()){
+            img_errorObj.setVisible(true);
+            txtNombreObj.setStyle("-fx-border-color: red");
+        }
+
+        if (txtNombreBucket.getText().isEmpty()){
+            img_errorBucket.setVisible(true);
+            txtNombreBucket.setStyle("-fx-border-color: red");
+        }
     }
 }

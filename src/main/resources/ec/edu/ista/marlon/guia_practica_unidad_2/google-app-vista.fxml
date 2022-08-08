@@ -31,5 +31,15 @@
             <Button fx:id="quitarArchivo" layoutX="246.0" layoutY="13.0" mnemonicParsing="false" onAction="#quitarArchivo" prefHeight="39.0" prefWidth="77.0" styleClass="btnQuitar" stylesheets="@../../../../../estilos.css" text="Quitar" />
          </children>
       </Pane>
+      <ImageView fx:id="img_errorObj" fitHeight="39.0" fitWidth="35.0" layoutX="6.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../alert-icon-red-11.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img_errorBucket" fitHeight="39.0" fitWidth="35.0" layoutX="6.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../alert-icon-red-11.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

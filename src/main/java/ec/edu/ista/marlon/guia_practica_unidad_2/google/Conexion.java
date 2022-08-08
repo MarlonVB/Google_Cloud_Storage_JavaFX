@@ -15,13 +15,15 @@ public class Conexion {
         BlobId blobId = BlobId.of(nombreBucket, nombreDeArchivo);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
         if (pathArchivo!=null){
-            System.out.println("ARCHIVO: "+pathArchivo);
             storage.create(blobInfo, Files.readAllBytes(Paths.get(pathArchivo)));
         }else{
             System.out.println("NO SE ENCUENTRA EL ARCHIVO");
         }
         long fin = System.currentTimeMillis();
 
+
+        System.out.println("INICIO: "+inicio);
+        System.out.println("FIN: "+fin);
         System.out.println(
                 "File " + pathArchivo + " uploaded to bucket " + nombreBucket + " as " + nombreDeArchivo+" \n Tiempo de Espera: "+(fin - inicio)/1000);
 

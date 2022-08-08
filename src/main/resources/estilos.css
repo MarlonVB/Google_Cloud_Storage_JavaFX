@@ -1,5 +1,5 @@
 .pane-estilo{
-    -fx-background-color:#E5E8EF;
+    -fx-background-color: #0097f1;
 }
 .boton-estilo{
     -fx-border-color: #C501E2;
@@ -26,6 +26,7 @@
     -fx-background-color: #a3a7a8, white;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
     -fx-font-size: 18;
+
 }
 .text-field:focused {
     -fx-background-color: #C501E2, white ;
