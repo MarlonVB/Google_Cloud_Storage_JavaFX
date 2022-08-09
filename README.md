@@ -81,6 +81,8 @@ A continuacion pongo los pasos a seguir:
 
 [![path-7.png](https://i.postimg.cc/T1hxbGNP/path-7.png)](https://postimg.cc/JHwSVwLw)
 
+> **_Nota_** _Este proceso puede ser afectado cuando se haga un fetch (descargar contenidos desde el repositorio) o al realizar un commit (Subir cambios al repositorio)._
+
 # Observaciones
 En este caso se usó Intellij como IDE de desarrollo, en caso de use algún otro como NetBeans o Eclipse, debe asegurarse de tener agregado en el module-info.java lo siguiente a parte de lo anterior:
 ```sh
